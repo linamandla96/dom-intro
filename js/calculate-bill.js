@@ -1,7 +1,7 @@
 //get a reference to the calculate button
 var calculateBtnElem = document.querySelector(".calculateBtn");
 //get a reference to the billTotal element
-var billTotalElem = document.querySelector(".billTotal");
+var billtalElem = document.querySelector(".billTotal");
 
 //get a reference to the billString
 var billStringElem = document.querySelector(".billString");
@@ -19,37 +19,37 @@ var billStringElem = document.querySelector(".billString");
 function calculateBtnClicked(){
 var billString = billStringElem.value;
 var billItems = billString.split(",")
-var billTotal = 0;
+var billtal = 0;
     for (var i = 0; i < billItems.length;i++){
     var billItem = billItems[i].trim();
     if(billItem === 'call'){
-        billTotal += 2.75;
+        billtal += 2.75;
     }
     else if (billItem ==='sms'){
-        billTotal += 0.75;
+        billtal += 0.75;
     }
     
 } 
-      var BillTotal = billTotal.toFixed(2);
+      var billtall = billtal.toFixed(2);
       //console.log(BillTotal)
-      if (billTotal >= 50){
-        billTotalElem.classList.remove("warning");
-        billTotalElem.classList.add("danger");
+      if (billtal >= 30){
+        billtalElem.classList.remove("warning");
+        billtalElem.classList.add("danger");
 
       }
-      else if (billTotal >= 30){
-        billTotalElem.classList.remove("danger");
-         billTotalElem.classList.add("warning");
+      else if (billtal >= 20){
+        billtalElem.classList.remove("danger");
+         billtalElem.classList.add("warning");
       }
-      // else {
-      //   billTotalElem.classList.remove("danger");
-      //   billTotalElem.classList.remove("warning");
+       else {
+        billtalElem.classList.remove("danger");
+         billtalElem.classList.remove("warning");
 
-      // }
+      }
 
 
 
-      billTotalElem.innerHTML = BillTotal;
+      billtalElem.innerHTML = billtal;
 
 }
 
