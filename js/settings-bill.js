@@ -80,7 +80,7 @@ function addItemBtnClicked() {
         totalSetElem.classList.add("warning");
         totalSetElem.classList.remove("danger");
     }
-    totalSetElem.innerHTML = totalSettings;
+    totalSetElem.innerHTML = totalSettings.toFixed(2);
 }
 
 
