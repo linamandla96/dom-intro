@@ -36,6 +36,25 @@ console.log(callCostSetElem)
     
     criticalLevelSettings= Number(criticalLevelSetElem.value);
     warningLevelSetttings = warningLevelSetElem.value;
+    
+    totalSettings = smsTotalSettings3 + callTotalSettings3;
+    totalSetElem.innerHTML = totalSettings.toFixed(2);
+      
+    if(totalSettings >=criticalLevelSettings){ 
+        totalSetElem.classList.add("danger");
+        totalSetElem.classList.remove("warning");
+
+    }
+    else if(totalSettings >= warningLevelSetttings){
+
+        totalSetElem.classList.add("warning");
+        totalSetElem.classList.remove("danger");
+    }
+    else{
+       totalSetElem.classList.remove("danger")
+       totalSetElem.classList.remove("warning");
+    }
+    totalSetElem.innerHTML = totalSettings.toFixed(2);
      
     // smsTotalSettings3 = smsTotalSetElem.value;
     // callTotalSettings3 = callTotalSetElem.value;
