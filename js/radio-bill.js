@@ -56,7 +56,7 @@ function radioBillAddBtnClicked(){
 //        billTotalElem.classList.remove("warning");
 //        billTotalElem.classList.remove("danger");
 //    }
-   billTotalElem.innerHTML = total;
+   billTotalElem.innerHTML = total.toFixed(2);
 } 
 //add an event listener for when the add button is pressed
 radioBillAddBtnElem.addEventListener('click' , radioBillAddBtnClicked);

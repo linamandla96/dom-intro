@@ -44,7 +44,7 @@ console.log(callCostSetElem)
 }
 function addItemBtnClicked() {
     var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    if (checkedRadioBtn) {
+    if (totalSettings<criticalLevelSettings) {
         var billItemType = checkedRadioBtn.value
         
 
@@ -70,7 +70,7 @@ function addItemBtnClicked() {
 
      totalSetElem.innerHTML = totalSettings.toFixed(2);
       
-    if(totalSettings >= criticalLevelSettings){ 
+    if(totalSettings >=criticalLevelSettings){ 
         totalSetElem.classList.add("danger");
         totalSetElem.classList.remove("warning");
 
@@ -79,6 +79,10 @@ function addItemBtnClicked() {
 
         totalSetElem.classList.add("warning");
         totalSetElem.classList.remove("danger");
+    }
+    else{
+       totalSetElem.classList.remove("danger")
+       totalSetElem.classList.remove("warning");
     }
     totalSetElem.innerHTML = totalSettings.toFixed(2);
 }

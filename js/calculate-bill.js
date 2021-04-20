@@ -49,7 +49,7 @@ var billtal = 0;
 
 
 
-      billtalElem.innerHTML = billtal;
+      billtalElem.innerHTML = billtal.toFixed(2);
 
 }
 
