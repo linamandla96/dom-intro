@@ -18,18 +18,19 @@ var billStringElem = document.querySelector(".billString");
 
 function calculateBtnClicked(){
 var billString = billStringElem.value;
-var billItems = billString.split(",")
-var billtal = 0;
-    for (var i = 0; i < billItems.length;i++){
-    var billItem = billItems[i].trim();
-    if(billItem === 'call'){
+calculate(billString);
+ var billItems = billString.split(",")
+ var billtal = 0;
+     for (var i = 0; i < billItems.length;i++){
+     var billItem = billItems[i].trim();
+     if(billItem === 'call'){
         billtal += 2.75;
-    }
-    else if (billItem ==='sms'){
+     }
+     else if (billItem ==='sms'){
         billtal += 0.75;
-    }
+     }
     
-} 
+ } 
       var billtall = billtal.toFixed(2);
       //console.log(BillTotal)
       if (billtal >= 30){
