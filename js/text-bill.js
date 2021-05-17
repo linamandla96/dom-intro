@@ -7,38 +7,23 @@ var smsTotaElem = document.querySelector(".smsTotalOne");
 var callTotaElem =document.querySelector(".callTotalOne") 
  var billTotaElem = document.querySelector(".totalOne")
 
- var smsTotal = 0;
-var callTotal = 0;
- var total = 0;
-//add an event listener for when the add button is pressed
 
+let textB = text();
 
 function addToBillBtnClicked(){
 var billTypeEntered = billTypeTextElem.value;
+textB.text1(billTypeEntered);
 
 
-if(billTypeEntered === "sms"){
-     smsTotal += 0.75;
-}
-else if (billTypeEntered === "call"){
-         callTotal += 2.75;
-}
+ smsTotaElem.innerHTML = textB.smstext();
+ callTotaElem.innerHTML = textB.calltext();
+ billTotaElem.innerHTML = textB.texttotal().toFixed(2);
 
-var total = smsTotal + callTotal;
-smsTotaElem.innerHTML = smsTotal.toFixed(2);
-callTotaElem.innerHTML = callTotal.toFixed(2);
-billTotaElem.innerHTML = total.toFixed(2);
-
-if (total >= 50){
-    billTotaElem.classList.remove("warning");
-    billTotaElem.classList.add("danger");
-}
-else if (total >= 30 ){
+  billTotaElem.classList.remove("warning");
   billTotaElem.classList.remove("danger");
-  billTotaElem.classList.add("warning");
-}
+  billTotaElem.classList.add(textB.colourtotal());
+  
 
-billTotaElem.innerHTML = total.toFixed(2);
 
 }
 

@@ -5,8 +5,8 @@ describe('The calculate bill ' , function(){
         
         
         let calcu = calculate();
-        calcu.calculate1('sms')
-        assert.equal(calcu.total(),0.75);
+        
+        assert.equal(calcu.calculate1('sms,sms'),1.50);
 
         
     });
@@ -15,11 +15,8 @@ describe('The calculate bill ' , function(){
         
         let calcu2 = calculate()
 
-        calcu2.calculate1('call');
-        calcu2.calculate1('call');
-        calcu2.calculate1('call');
-        calcu2.calculate1('call');
-        assert.equal(calcu2.total(),11.00);
+        
+        assert.equal(calcu2.calculate1('call,call,call,call,'),11.00);
 
         
     });
@@ -28,12 +25,9 @@ describe('The calculate bill ' , function(){
         
         let calcu2 = calculate()
 
-        calcu2.calculate1('call');
-        calcu2.calculate1('sms');
-        calcu2.calculate1('call');
-        calcu2.calculate1('sms');
-        calcu2.calculate1('sms');
-        assert.equal(calcu2.total(),7.75);
+        
+        
+        assert.equal(calcu2.calculate1('call,sms,call,sms,sms,'),7.75);
 
         
     });
@@ -41,11 +35,9 @@ describe('The calculate bill ' , function(){
         
         
         let calcu2 = calculate();
-        calcu2.calculate1('sms')
-        calcu2.calculate1('sms')
-        calcu2.calculate1('sms')
-        calcu2.calculate1('sms')
-        assert.equal(calcu2.total(),3.00);
+        
+        
+        assert.equal(calcu2.calculate1('sms,sms,sms,sms'),3.00);
 
         
     });
@@ -53,40 +45,20 @@ describe('The calculate bill ' , function(){
         
         
         let calcu = calculate();
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.levelcolour()
-        
-        assert.equal('warning',calcu.levelcolour());
-    assert.equal(calcu.total(),22.00)
-        
+    
+    assert.equal(calcu.calculate1('call,call,sms,call,call,sms,call,call,sms,call,call,'),24.25)
+    assert.equal('warning',calcu.levelcolour());
     });
     it('should return danger whe the total bill is equal and above 30' , function(){
         
         
         let calcu = calculate();
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.levelcolour()
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
-        calcu.calculate1('call')
+    
         
-        assert.equal('danger',calcu.levelcolour());
-    assert.equal(calcu.total(),33.00)
+assert.equal(calcu.calculate1('call,call,call,sms,sms,sms,call,call,call,sms,sms,sms,call,call,call,sms,sms,sms')
+    ,31.50)
+    assert.equal('danger',calcu.levelcolour());
+    
         
     });
     

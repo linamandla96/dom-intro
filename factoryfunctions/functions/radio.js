@@ -12,11 +12,11 @@ function radio() {
     }
 
     function callradiototal() {
-        return callTotal2;
+        return callTotal2.toFixed(2);
     }
 
     function smsradiototal() {
-        return smsTotal2;
+        return smsTotal2.toFixed(2);
     }
     function radiototal() {
         return smsTotal2 + callTotal2;

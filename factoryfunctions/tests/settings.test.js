@@ -127,6 +127,8 @@ describe('The settings bill function ' , function(){
             billset.setCallCost(2.75)
             billset.setSmsCost(0.60)
             billset.setWarninglevel(10)
+            billset.setCriticallevel(21)
+
         
 
             billset.sendsms();
@@ -143,13 +145,14 @@ describe('The settings bill function ' , function(){
             
             
         });
-        it('should be able to return warning level when warning level set has been reached' , function(){
+        it('should be able to return critical level when critical level set has been reached' , function(){
             
             
             let billset = billsetting();
             billset.setCallCost(2.75)
             billset.setSmsCost(0.60)
-            billset.setCriticallevel(10)
+            billset.setWarninglevel(10)
+            billset.setCriticallevel(21)
         
 
             billset.sendsms();
@@ -159,10 +162,16 @@ describe('The settings bill function ' , function(){
             billset.makeCall();
             billset.sendsms();
             billset.sendsms();
-            
+            billset.sendsms();
+            billset.sendsms();
+            billset.makeCall();
+            billset.makeCall();
+            billset.makeCall();
+            billset.sendsms();
+            billset.sendsms();
         
             
-            assert.equal("warning",billset.getcolourTotal());
+            assert.equal("danger",billset.getcolourTotal());
             
             
         });

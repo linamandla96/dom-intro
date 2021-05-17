@@ -1,85 +1,117 @@
-function billsetting(){
+function billsetting() {
 
-var theCallCost = 0;
-var theSmsCost = 0;
-var theWarninglevel = 0;
- var theCriticalleve =0;
- var callCostTotal = 0;
- var smsCostTotal = 0
- 
+     var theCallCost = 0;
+     var theSmsCost = 0;
+     var theWarninglevel = 0;
+     var theCriticalleve = 0;
+     var callCostTotal = 0;
+     var smsCostTotal = 0
 
-function setCallCost(callCost){
-     theCallCost = callCost;
-}
 
-function getCallCost(){
-    return theCallCost;
-}
-
-function setSmsCost(smsCost){
-theSmsCost = smsCost;
-
-}
-function getSmsCost(){
-  return theSmsCost;
-}
-function setWarninglevel(warninglevel){
-       theWarninglevel = warninglevel;
-}
-function getWarninglevel(){
-return theWarninglevel;
-
-}
-function setCriticallevel(criticalevel){
-      theCriticalleve = criticalevel;
-}
-function getCriticalleve(){
-     return theCriticalleve;
-}
-function makeCall(){
-    return callCostTotal += theCallCost; 
-}
-function sendsms(){
-   return  smsCostTotal += theSmsCost;
-}
-function getCallTotal(){
-  return callCostTotal;
-}
-function getSmsTotal(){
-   return smsCostTotal;
-}
-function getTotalCost(){
-    return callCostTotal + smsCostTotal;
-}
-function getcolourTotal(){
-     if(getTotalCost()>= getWarninglevel()){
-          return "warning";
+     function setCallCost(callCost) {
+          theCallCost += callCost;
      }
-     if(getTotalCost() >= getCriticalleve()){
-    return "danger";
+
+     function getCallCost() {
+          return theCallCost;
+     }
+
+     function setSmsCost(smsCost) {
+          theSmsCost += smsCost;
 
      }
-}
+     function getSmsCost() {
+          return theSmsCost;
+     }
+     function setWarninglevel(warninglevel) {
+          theWarninglevel = warninglevel;
+     }
+     function getWarninglevel() {
+          return theWarninglevel;
 
-return{
-setCallCost,
-getCallCost,
+     }
+     function setCriticallevel(criticalevel) {
+          theCriticalleve = criticalevel;
+     }
+     function getCriticalleve() {
+          return theCriticalleve;
+     }
+     function makeCall() {
+          if(!stopCritical()){
+            return   callCostTotal += theCallCost;
+          }
+          
+         callCostTotal +=theCallCost; //return callCostTotal += theCallCost;
+     }
+     function sendsms() {
 
-setSmsCost,
-getSmsCost,
+          if(!stopCritical()){
 
-setWarninglevel,
-getWarninglevel,
+              return smsCostTotal += theSmsCost;
+          }
+         smsCostTotal+=theSmsCost; //return smsCostTotal += theSmsCost;
+     }
+     function getCallTotal() {
+          return callCostTotal;
+     }
+     function getSmsTotal() {
+          return smsCostTotal;
+     }
+     function getTotalCost() {
+          // var total = 0;
+          // console.log(getcolourTotal())
+          return getSmsTotal() + getCallTotal();
 
-setCriticallevel,
-getCriticalleve,
+     }
+     function getcolourTotal() {
+          if (getTotalCost() >= getWarninglevel() && getTotalCost() < getCriticalleve()) {
+               return "warning";
+          }
+          if (getTotalCost() >= getCriticalleve()) {
+               return "danger";
+          }
+     }
+     function billStringType(stringType) {
+          //alert(getTotalCost())
+               if (stringType === 'call') {
+                    makeCall();
+               }
+               else if (stringType === 'sms') {
+                    sendsms();
+               }
 
-makeCall,
-sendsms,
+     }
+     function stopCritical() {
 
-getCallTotal,
-getSmsTotal,
-getTotalCost,
-getcolourTotal,
-}
+         return getTotalCost() >= getCriticalleve(); {
+               
+          }
+     }
+
+     return {
+          setCallCost,
+          getCallCost,
+
+          setSmsCost,
+          getSmsCost,
+
+          setWarninglevel,
+          getWarninglevel,
+
+          setCriticallevel,
+          getCriticalleve,
+
+          makeCall,
+          sendsms,
+
+          getCallTotal,
+          getSmsTotal,
+          getTotalCost,
+          getcolourTotal,
+
+          billStringType,
+
+          stopCritical,
+     }
+
 }
