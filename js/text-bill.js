@@ -15,8 +15,8 @@ var billTypeEntered = billTypeTextElem.value;
 textB.text1(billTypeEntered);
 
 
- smsTotaElem.innerHTML = textB.smstext();
- callTotaElem.innerHTML = textB.calltext();
+ smsTotaElem.innerHTML = textB.smstext().toFixed(2);
+ callTotaElem.innerHTML = textB.calltext().toFixed(2);
  billTotaElem.innerHTML = textB.texttotal().toFixed(2);
 
   billTotaElem.classList.remove("warning");

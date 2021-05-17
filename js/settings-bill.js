@@ -31,17 +31,10 @@ let setDom= billsetting();
 function updateSettingsClicked() {
 //console.log(callCostSetElem)
     callCostSettings = setDom.setCallCost(Number(callCostSetElem.value))
-     setDom.getCallCost;
     smsCostSettings  = setDom.setSmsCost(Number(smsCostSetElem.value));
-    setDom.getSmsCost;
     criticalLevelSettings= setDom.setCriticallevel(criticalLevelSetElem.value);
-    setDom.getCriticalleve;
     warningLevelSetttings = setDom.setWarninglevel(warningLevelSetElem.value);
-    
-
-    //totalSetElem.innerHTML = setDom.getTotalCost();
-      setDom.getcolourTotal();
-    
+        
     
        totalSetElem.classList.remove("danger");
        totalSetElem.classList.remove("warning");

@@ -32,7 +32,7 @@ function radioBillAddBtnClicked(){
 
         billTotalElem.classList.remove("warning");
         billTotalElem.classList.remove("danger");
-        billTotalElem.classList.add(radioR.colourlevel());
+        
 
 }
 }

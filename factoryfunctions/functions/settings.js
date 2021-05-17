@@ -37,19 +37,17 @@ function billsetting() {
           return theCriticalleve;
      }
      function makeCall() {
-          if(!stopCritical()){
-            return   callCostTotal += theCallCost;
+          if (stopCritical()) {
+               callCostTotal += theCallCost;
           }
-          
-         callCostTotal +=theCallCost; //return callCostTotal += theCallCost;
+          callCostTotal += theCallCost;
      }
      function sendsms() {
 
-          if(!stopCritical()){
-
-              return smsCostTotal += theSmsCost;
+          if (stopCritical()) {
+               smsCostTotal += theSmsCost;
           }
-         smsCostTotal+=theSmsCost; //return smsCostTotal += theSmsCost;
+          smsCostTotal += theSmsCost;
      }
      function getCallTotal() {
           return callCostTotal;
@@ -73,19 +71,16 @@ function billsetting() {
      }
      function billStringType(stringType) {
           //alert(getTotalCost())
-               if (stringType === 'call') {
-                    makeCall();
-               }
-               else if (stringType === 'sms') {
-                    sendsms();
-               }
+          if (stringType === 'call') {
+               makeCall();
+          }
+          else if (stringType === 'sms') {
+               sendsms();
+          }
 
      }
      function stopCritical() {
-
-         return getTotalCost() >= getCriticalleve(); {
-               
-          }
+          return getTotalCost() < getCriticalleve()
      }
 
      return {

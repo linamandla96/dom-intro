@@ -12,7 +12,7 @@ function calculateBtnClicked() {
    billtalElem.innerHTML = billCalc.calculate1(billStringElem.value);
    billtalElem.classList.remove("danger");
    billtalElem.classList.remove("warning");
-   billtalElem.classList.add(billCalc.levelcolour(billStringElem.value));
+   billtalElem.classList.add(billCalc.levelcolour(billCalc.calculate1(billStringElem.value)));
 
 }
 
