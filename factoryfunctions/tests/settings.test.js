@@ -126,8 +126,9 @@ describe('The settings bill function ' , function(){
             let billset = billsetting();
             billset.setCallCost(2.75)
             billset.setSmsCost(0.60)
-            //billset.setWarninglevel(10)
             billset.setCriticallevel(21)
+            billset.setWarninglevel(10,05)
+            //billset.setCriticallevel(21)
 
         
 
@@ -137,11 +138,11 @@ describe('The settings bill function ' , function(){
             billset.makeCall();
             billset.makeCall();
             billset.sendsms();
-            billset.sendsms();
+            
             
         
             
-            assert.equal("danger",billset.getcolourTotal());
+            assert.equal("warning",billset.getcolourTotal());
             
             
         });
@@ -151,8 +152,8 @@ describe('The settings bill function ' , function(){
             let billset = billsetting();
             billset.setCallCost(2.75)
             billset.setSmsCost(0.60)
-            billset.setWarninglevel(10)
-            billset.setCriticallevel(21)
+            billset.setWarninglevel(5)
+            billset.setCriticallevel(10)
         
 
             billset.sendsms();
