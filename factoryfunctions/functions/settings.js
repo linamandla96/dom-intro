@@ -40,14 +40,14 @@ function billsetting() {
           if (stopCritical()) {
                callCostTotal += theCallCost;
           }
-          //callCostTotal += theCallCost;
+          
      }
      function sendsms() {
 
           if (stopCritical()) {
                smsCostTotal += theSmsCost;
           }
-          //smsCostTotal += theSmsCost;
+          
      }
      function getCallTotal() {
           return callCostTotal;
